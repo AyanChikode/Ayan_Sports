@@ -1,9 +1,9 @@
 import axios from "axios";
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-
-const ADMINLOGIN= () => {
-
+const Login= () => {
+    const navigate = useNavigate();
   const [id, setId] = useState(undefined);
   // Create 
   const [data, setData] = useState({
@@ -25,6 +25,7 @@ const ADMINLOGIN= () => {
       .post("https://695b986a1d8041d5eeb77c41.mockapi.io/Users", data)
       .then((result) => {
         // console.log("POST Success:", result.data);
+        navigate("/dashboard");
       })
       .catch((err) => {
         // console.log("Server Error:", err.response);
@@ -72,4 +73,4 @@ const ADMINLOGIN= () => {
   );
 };
 
-export default ADMINLOGIN;
+export default Login;

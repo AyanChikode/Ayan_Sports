@@ -1,99 +1,107 @@
 import React from 'react'
 
 function Cricket() {
+    const products = [
+  {
+    id: 1,
+    brand: "SG",
+    name: "English Willow Bat",
+    price: 2100,
+    img: "SGbat1.png",
+  },
+  {
+    id: 2,
+    brand: "SG",
+    name: "Genius Cricket Bat",
+    price: 2300,
+    img: "SGbat2.png",
+  },
+  {
+    id: 3,
+    brand: "SG",
+    name: "Kashmir Willow Bat",
+    price: 1900,
+    img: "SGbat3.png",
+  },
+  {
+    id: 4,
+    brand: "SG",
+    name: "Players Edition Bat",
+    price: 2500,
+    img: "SGbat4.png",
+  },
+  {
+    id: 5,
+    brand: "SG",
+    name: "Power Drive Bat",
+    price: 2200,
+    img: "SGbat5.png",
+  },
+  {
+    id: 6,
+    brand: "SG",
+    name: "Classic Cricket Bat",
+    price: 2400,
+    img: "SGbat6.png",
+  },
+   {
+    id: 7,
+    brand: "SG",
+    name: "Classic Cricket Bat",
+    price: 2400,
+    img: "SGbat6.png",
+  },
+   {
+    id: 8,
+    brand: "SG",
+    name: "Classic Cricket Bat",
+    price: 2400,
+    img: "SGbat6.png",
+  },
+];
+
+
   return (
     <>
     <h1>Cricket</h1>
     
-    <div className="container-fluid">
-      <div className="row">
-        <div className='col-lg-2'>
-          <div className='card shadow'>
-            <div className='card- body text-center'>
-              <h3 href="Home" className='card-title mt-3'>Sports</h3>
-              <a href="Home" className='card-title'><button>Circket</button><br/></a><br/>
-              <a href="Home" className='card-title'><button>Football</button></a><br/>
-              <a href="Home" className='card-title'><button>Tennis</button></a>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-2">
-          <div className="card shadow">
-            <div className="card-body text-center ">
-              <img
-              src="SGbat3.png"
-              className="card-img-top"
-              alt="Card"
-              
-            />
-              <p className="card-text"><i class="fa-solid fa-indian-rupee-sign"></i>2100</p>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-2">
-          <div className="card shadow">
-            <div className="card-body text-center">
-               <img
-              src="SGbat2.png"
-              className="card-img-top"
-              alt="Card"
-            />
-              <span className="card-title">SG Sierra Plus Kashmir Willow Cricket Bat</span>
-              <p className="card-text" ><i class="fa-solid fa-indian-rupee-sign"></i>1599.00</p>
-            </div>
-          </div>
-        </div>
+   <div className="container mt-4">
+  <div className="row">
+    {products.map((item) => (
+      <div className="col-lg-3 col-md-4 col-sm-6 mb-3" key={item.id}>
+        <div className="card shadow text-center product-card">
 
-        <div className="col-lg-2">
-          <div className="card shadow">
-            <div className="card-body text-center">
-               <img
-              src="SGbat1.png"
-              className="card-img-top"
-              alt="Card"
-             
-            />
-              <h5 className="card-title">Card 3</h5>
-              <p className="card-text">Responsive Design</p>
-            </div>
-          </div>
-        </div>
+          <img
+            src={item.img}
 
+            className="card-img-top p-2"
+            alt={item.name}
+          />
+
+          <div className="card-body">
+            <p className="card-text fw-bold text-dark mb-1">
+               {item.brand}
+            </p>
+
+            <p className="card-text text-muted mb-1">
+              {item.name}
+            </p>
+
+            <p className="card-text fw-bold text-success">
+              <i className="fa-solid fa-indian-rupee-sign"></i>{item.price}
+            </p>
+          </div>
+
+        </div>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
+
+
     </>
   )
 }
-//  <div className="container d-flex justify-content-center align-items-center vh-100">
-//         <div className="card shadow p-4" style={{ width: "350px" }}>
-//           <h3 className="text-center mb-4 text-dark">Login</h3>
 
-//           <form onSubmit={handleSubmit}>
-//             <div className="mb-3">
-//               <label className="form-label text-dark">Name</label>
-//               <input
-//                 id="name"
-//                 className="form-control"
-//                 placeholder="Enter Name"
-//                 onChange={handleChange}
-//               />
-//             </div>
 
-//             <div className="mb-3">
-//               <label className="form-label text-dark">Password</label>
-//               <input
-//                 id="password"
-//                 type="password"
-//                 className="form-control"
-//                 placeholder="Enter password"
-//                 onChange={handleChange}
-//               />
-//             </div>
-
-//             <button type="submit" className="btn btn-dark w-100">
-//               Login
-//             </button>
-//           </form>
-//         </div>
-//       </div>
 export default Cricket
