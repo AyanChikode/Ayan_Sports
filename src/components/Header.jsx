@@ -30,7 +30,7 @@ function Header() {
                                 <a class="nav-link mt-5 me-1 mb-5">Contact</a>
                     </Link>
                      <Link to="/login" class="nav-item text-decoration-none">
-                                <a class="nav-link mt-5 me-1 mb-5">Login</a>
+                                <a class="nav-link mt-5 me-1 mb-5">AdminLogin</a>
                     </Link>
                             
                             

@@ -64,5 +64,36 @@ function Cricket() {
     </>
   )
 }
+//  <div className="container d-flex justify-content-center align-items-center vh-100">
+//         <div className="card shadow p-4" style={{ width: "350px" }}>
+//           <h3 className="text-center mb-4 text-dark">Login</h3>
 
+//           <form onSubmit={handleSubmit}>
+//             <div className="mb-3">
+//               <label className="form-label text-dark">Name</label>
+//               <input
+//                 id="name"
+//                 className="form-control"
+//                 placeholder="Enter Name"
+//                 onChange={handleChange}
+//               />
+//             </div>
+
+//             <div className="mb-3">
+//               <label className="form-label text-dark">Password</label>
+//               <input
+//                 id="password"
+//                 type="password"
+//                 className="form-control"
+//                 placeholder="Enter password"
+//                 onChange={handleChange}
+//               />
+//             </div>
+
+//             <button type="submit" className="btn btn-dark w-100">
+//               Login
+//             </button>
+//           </form>
+//         </div>
+//       </div>
 export default Cricket

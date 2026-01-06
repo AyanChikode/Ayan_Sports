@@ -6,7 +6,7 @@ import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Tennis from "./components/Tennis"
 import Home from "./components/Home"
-import Login from "./components/Login"
+import ADMINLOGIN from "./components/ADMINLOGIN"
 import './App.css';
 import { BrowserRouter , Routes, Route } from "react-router-dom"
 
@@ -22,7 +22,7 @@ function App() {
     <Route path="/tennis" element={<Tennis/>}/>
     <Route path="/about" element={<About/>}/>
     <Route path="/contact" element={<Contact/>}/>
-    <Route path="/login" element={<Login/>}/>
+    <Route path="/login" element={<ADMINLOGIN/>}/>
    </Routes>
    <Footer />
    </BrowserRouter>

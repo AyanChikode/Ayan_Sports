@@ -1,7 +1,8 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
-const Login = () => {
+
+const ADMINLOGIN= () => {
 
   const [id, setId] = useState(undefined);
   // Create 
@@ -35,15 +36,14 @@ const Login = () => {
       <div>
         <h1 className="text-center">Login</h1>
       </div>
+     <div className="container d-flex justify-content-center align-items-center vh-50">
+           <div className="card shadow p-4" style={{ width: "350px" }}>
+             <h3 className="text-center mb-4 text-dark">Login</h3>
 
-      <div className="container d-flex justify-content-center align-items-center vh-100">
-        <div className="card shadow p-4" style={{ width: "350px" }}>
-          <h3 className="text-center mb-4 text-dark">Login</h3>
-
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label className="form-label text-dark">Name</label>
-              <input
+         <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                 <label className="form-label text-dark">Name</label>
+                 <input
                 id="name"
                 className="form-control"
                 placeholder="Enter Name"
@@ -72,4 +72,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ADMINLOGIN;
