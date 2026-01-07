@@ -1,18 +1,18 @@
 import React from 'react'
 
-function Cricket() {
+function Bat() {
     const products = [
   {
     id: 1,
     brand: "SG",
-    name: "English Willow Bat",
+    name: "a classic",
     price: 2100,
     img: "SGbat1.png",
   },
   {
     id: 2,
     brand: "SG",
-    name: "Genius Cricket Bat",
+    name: "RP Icon",
     price: 2300,
     img: "SGbat2.png",
   },
@@ -47,24 +47,52 @@ function Cricket() {
    {
     id: 7,
     brand: "SG",
-    name: "Classic Cricket Bat",
+    name: " KLR Ultimate",
     price: 2400,
-    img: "SGbat6.png",
+    img: "SGbat7.png",
   },
    {
     id: 8,
     brand: "SG",
     name: "Classic Cricket Bat",
     price: 2400,
-    img: "SGbat6.png",
+    img: "SGbat8.png",
   },
+  {
+    id: 9,
+    brand : "SG",
+    name: "Triple Crown",
+    price : 4500,
+    img : "SGbat9.png"
+  },
+  {
+  id: 10,
+  brand:"SG",
+  name:"",
+  price: 3700,
+  img : "SGbat10.png"
+  },
+  {
+  id : 11,
+  barnd:"SG",
+  name:"",
+  price:4000,
+  img : "SGbat11.png"
+  },
+  {
+  id:12,
+  brand:"SG",
+  name:"",
+  price:3500,
+  img : "SGbat12"
+  }
 ];
 
 
   return (
     <>
-    <h1>Cricket</h1>
-    
+   
+    <h1>Bat</h1>
    <div className="container mt-4">
   <div className="row">
     {products.map((item) => (
@@ -104,4 +132,4 @@ function Cricket() {
 }
 
 
-export default Cricket
+export default Bat

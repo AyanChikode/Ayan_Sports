@@ -13,23 +13,26 @@ function Header() {
                     </Link>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                     <Link to={"/cricket"} className="nav-item text-decoration-none">
-                                <a className="nav-link mt-5 me-1 mb-5">Cricket</a>
+                     <Link to={"/bat"} className="nav-item text-decoration-none">
+                                <a className="nav-link mt-5 me-1 mb-5">BAT</a>
                     </Link>
                     
-                    <Link to={"/football"} className="nav-item text-decoration-none">
-                                <a class="nav-link mt-5 me-1 mb-5">Football</a>
+                    <Link to={"/ball"} className="nav-item text-decoration-none">
+                                <a class="nav-link mt-5 me-1 mb-5">BALL</a>
                     </Link>
-                    <Link to={"/tennis"} className="nav-item text-decoration-none">
-                                <a class="nav-link mt-5 me-1 mb-5">Tennis</a>
+                    <Link to={"/glove"} className="nav-item text-decoration-none">
+                                <a class="nav-link mt-5 me-1 mb-5">GLOVE</a>
+                    </Link>
+                    <Link to={"/helmet"} className="nav-item text-decoration-none">
+                                <a class="nav-link mt-5 me-1 mb-5">HELMET</a>
                     </Link>
                     <Link to={"/about"} className="nav-item text-decoration-none">
                                 <a className="nav-link mt-5 me-1 mb-5">About</a>
                     </Link>
-                    <Link to="/contact" className="nav-item text-decoration-none">
+                    <Link to={"/contact"} className="nav-item text-decoration-none">
                                 <a className="nav-link mt-5 me-1 mb-5">Contact</a>
                     </Link>
-                     <Link to="/login" className="nav-item text-decoration-none">
+                     <Link to={"/login"} className="nav-item text-decoration-none">
                                 <a className="nav-link mt-5 me-1 mb-5">Login</a>
                     </Link>
                             
