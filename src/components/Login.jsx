@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Outlet } from "react-router-dom";
 
 const Login= () => {
     const navigate = useNavigate();
@@ -25,7 +25,7 @@ const Login= () => {
       .post("https://695b986a1d8041d5eeb77c41.mockapi.io/Users", data)
       .then((result) => {
         // console.log("POST Success:", result.data);
-        navigate("/dashboard");
+        navigate("dashboard");
       })
       .catch((err) => {
         // console.log("Server Error:", err.response);
@@ -41,7 +41,7 @@ const Login= () => {
            <div className="card shadow p-4" style={{ width: "350px" }}>
              <h3 className="text-center mb-4 text-dark">Login</h3>
 
-         <form onSubmit={handleSubmit}>
+         <form >
                 <div className="mb-3">
                  <label className="form-label text-dark">Name</label>
                  <input
@@ -63,12 +63,13 @@ const Login= () => {
               />
             </div>
 
-            <button type="submit" className="btn btn-dark w-100">
+            <button onClick={handleSubmit}className="btn btn-dark w-100">
               Login
             </button>
           </form>
         </div>
       </div>
+      <Outlet/>
     </>
   );
 };

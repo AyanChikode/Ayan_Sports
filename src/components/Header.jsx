@@ -1,49 +1,49 @@
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Header() {
-
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
                     <Link to={"/"}>
-                        <a className="navbar-brand">
-                            <img style={{ width: "50px" }} src="/Logo.png" alt="" className="ms-5 mt-5 mb-5"/>
+                        <a class="navbar-brand" href="#">
+                            <img style={{ width: "100px" }} src="/assets/images/Logo.png" alt="" />
                         </a>
                     </Link>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                     <Link to={"/bat"} className="nav-item text-decoration-none">
-                                <a className="nav-link mt-5 me-1 mb-5">BAT</a>
-                    </Link>
-                    
-                    <Link to={"/ball"} className="nav-item text-decoration-none">
-                                <a class="nav-link mt-5 me-1 mb-5">BALL</a>
-                    </Link>
-                    <Link to={"/glove"} className="nav-item text-decoration-none">
-                                <a class="nav-link mt-5 me-1 mb-5">GLOVE</a>
-                    </Link>
-                    <Link to={"/helmet"} className="nav-item text-decoration-none">
-                                <a class="nav-link mt-5 me-1 mb-5">HELMET</a>
-                    </Link>
-                    <Link to={"/about"} className="nav-item text-decoration-none">
-                                <a className="nav-link mt-5 me-1 mb-5">About</a>
-                    </Link>
-                    <Link to={"/contact"} className="nav-item text-decoration-none">
-                                <a className="nav-link mt-5 me-1 mb-5">Contact</a>
-                    </Link>
-                     <Link to={"/login"} className="nav-item text-decoration-none">
-                                <a className="nav-link mt-5 me-1 mb-5">Login</a>
-                    </Link>
-                            
-                            
-                            
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <Link to={"/about"} class="nav-item text-decoration-none">
+                                <a class="nav-link" href="#">About</a>
+                            </Link>
+                            <Link to={"/contact"} class="nav-item text-decoration-none">
+                                <a class="nav-link" href="#">Contact</a>
+                            </Link>
+                            <Link to={"/allproducts"} class="nav-item text-decoration-none">
+                                <a class="nav-link" href="#">All-Products</a>
+                            </Link>
+                            <Link to={"/adminlogin"} class="nav-item text-decoration-none">
+                                <a class="nav-link" href="#">Admin Login</a>
+                            </Link>
+                            <Link to={"/addproduct"} class="nav-item text-decoration-none">
+                                <a class="nav-link" href="#">Add Product</a>
+                            </Link>
+                            <Link to={"/products"} class="nav-item text-decoration-none">
+                                <a class="nav-link" href="#">Products</a>
+                            </Link>
                         </ul>
+
+                        <form class="d-flex me-5">
+                            <i class="fa-solid fa-cart-shopping fa-xl"></i>[0]
+                        </form>
                     </div>
                 </div>
             </nav>
         </>
     )
-};
+}
 
-export default Header;
+export default Header
