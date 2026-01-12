@@ -1,17 +1,20 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate,Outlet } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login= () => {
     const navigate = useNavigate();
-  const [id, setId] = useState(undefined);
+  // const [id, setId] = useState(undefined);
   // Create 
   const [data, setData] = useState({
     name: "",
     password: ""
   });
+    const[name, setName] = useState("");
+    const[password, setPassword]= useState("");
 
-  const [newData, setNewData] = useState([]);
+
+  // const [newData, setNewData] = useState([]);
 
   function handleChange(e) {
     setData({ ...data, [e.target.id]: e.target.value });
@@ -24,12 +27,19 @@ const Login= () => {
     axios
       .post("https://695b986a1d8041d5eeb77c41.mockapi.io/Users", data)
       .then((result) => {
-        // console.log("POST Success:", result.data);
-        navigate("dashboard");
+        console.log("POST Success:", result.data);
+        navigate("/adminlogin/dashboard")
+        setData({
+        name: "",
+        password: ""
+        
       })
-      .catch((err) => {
+      })
+      
+      // .catch((err) => {
         // console.log("Server Error:", err.response);
-      });
+      // });
+
   }
 
   return (
@@ -45,6 +55,7 @@ const Login= () => {
                 <div className="mb-3">
                  <label className="form-label text-dark">Name</label>
                  <input
+                 value={data.name}
                 id="name"
                 className="form-control"
                 placeholder="Enter Name"
@@ -55,6 +66,7 @@ const Login= () => {
             <div className="mb-3">
               <label className="form-label text-dark">Password</label>
               <input
+              value={data.password}
                 id="password"
                 type="password"
                 className="form-control"
@@ -62,14 +74,15 @@ const Login= () => {
                 onChange={handleChange}
               />
             </div>
-
-            <button onClick={handleSubmit}className="btn btn-dark w-100">
+            <Link to={("/adminlogin/dashboard")}>
+            <button onClick={handleSubmit}className="btn btn-outline-dark w-100">
               Login
             </button>
+            </Link>
           </form>
         </div>
       </div>
-      <Outlet/>
+      {/* <Outlet/> */}
     </>
   );
 };

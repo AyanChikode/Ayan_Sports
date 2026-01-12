@@ -99,7 +99,7 @@ const AddProduct = () => {
           </div>
 
           <div className="col-md-6">
-            <label htmlFor="category" className="form-label">Category</label>
+            <label htmlFor="category" className="form-label">Age</label>
             <select value={data.category} onChange={handlechange} className="form-select" id="category">
               <option>Choose Category...</option>
               <option>U-17</option>
@@ -143,7 +143,7 @@ const AddProduct = () => {
           </div>
 
           <div className="col-md-4">
-            <label htmlFor="size" className="form-label">Size</label>
+            <label htmlFor="size" className="form-label">Category</label>
             <select value={data.size} onChange={handlechange} className="form-select" id="size">
               <option>Choose Product</option>
               <option>Bat</option>
@@ -168,7 +168,7 @@ const AddProduct = () => {
         </div>
 
         {/* Submit */}
-        <button onClick={handleSubmit} className="btn btn-success px-4">
+        <button onClick={handleSubmit} className="btn btn-outline-dark px-4">
           Submit
         </button>
 

@@ -9,18 +9,18 @@ function Home() {
       className="carousel slide"
       data-bs-ride="carousel" 
     >
-      <h1 className="text-center bg-info">Hello</h1>
+      <h1 className="text-center bg-dark text-light">Hello</h1>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src="/cricket1.png" className="d-block w-100" alt="1" />
+          <img src="/assets/images/cricket1.png" className="d-block w-100" alt="1" />
         </div>
 
         <div className="carousel-item">
-          <img src="/football.png" className="d-block w-100" alt="2" />
+          <img src="/assets/images/football.png" className="d-block w-100" alt="2" />
         </div>
 
         <div className="carousel-item">
-          <img src="/Tennis.png" className="d-block w-100" alt="3" />
+          <img src="/assets/images/Tennis.png" className="d-block w-100" alt="3" />
         </div>
       </div>
 
@@ -47,7 +47,7 @@ function Home() {
     
     <div className="col-lg-4">
       <img
-        src="/kohli.png"
+        src="/assets/images/kohli.png"
         alt=""
         className="img-fluid ms-5 mt-5 mb-5"
         style={{ width: "500px", height: 585 }}
@@ -56,7 +56,7 @@ function Home() {
 
     <div className="col-lg-4">
       <img
-        src="/ronaldo.png"
+        src="/assets/images/ronaldo.png"
         alt=""
         className="img-fluid ms-5 mt-5 mb-5"
         style={{ width: "500px" }}
@@ -64,7 +64,7 @@ function Home() {
     </div>
      <div className="col-lg-4">
       <img
-        src="/nadal.png"
+        src="/assets/images/nadal.png"
         alt=""
         className="img-fluid ms-5 mt-5 mb-5"
         style={{ width: "500px", height: 585}}

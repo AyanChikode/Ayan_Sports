@@ -10,7 +10,7 @@ import Login from "./components/Login"
 import Helmet from "./components/Helmet"
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-// import Dashboard from "./components/Dashboard"
+import Dashboard from "./components/Dashboard"
 import Addproduct from "./components/admin/Addproduct"
 import Allproducts from "./components/Allproducts"
 import Products from "./components/admin/Products"
@@ -29,6 +29,8 @@ function App() {
 
 
           <Route path="/adminlogin" element={<Login />} />
+          <Route path="/adminlogin/dashboard" element={<Dashboard/>}/>
+          <Route path="/dashboard/ " element={<Dashboard/>} />
           <Route path="/addproduct" element={<Addproduct />} />
           <Route path="/addproduct/:id" element={<Addproduct />} />
           <Route path="/products" element={<Products />} />

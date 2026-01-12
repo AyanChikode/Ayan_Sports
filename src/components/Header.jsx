@@ -8,7 +8,7 @@ function Header() {
                 <div class="container-fluid">
                     <Link to={"/"}>
                         <a class="navbar-brand" href="#">
-                            <img style={{ width: "100px" }} src="/assets/images/Logo.png" alt="" />
+                            <img style={{ width: "100px" }} src="/Logo.png" alt="" />
                         </a>
                     </Link>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -100,7 +100,7 @@ function Footer() {
                                 <p><i class="fas fa-home me-3"></i> Kolhapur Naka,Vasantrekha Apartment,Ichalkaranji</p>
                                 <p>
                                     <i class="fas fa-envelope me-3"></i>
-                                    chikodeayan4@gmail.com
+                                    ayan4@gmail.com
                                 </p>
                                 <p><i class="fas fa-phone me-3"></i> +9371377538</p>
                                 <p><i class="fas fa-print me-3"></i> +7261979568</p>
@@ -113,10 +113,10 @@ function Footer() {
                 {/* <!-- Section: Links  --> */}
 
                 {/* <!-- Copyright --> */}
-                <div class="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
-                    © 2021 Copyright:
-                    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-                </div>
+                {/* <div class="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
+                    © 2021 Copyright: */}
+                    {/* <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a> */}
+                {/* </div> */}
                 {/* <!-- Copyright --> */}
             </footer>
             {/* <!-- Footer --> */}
