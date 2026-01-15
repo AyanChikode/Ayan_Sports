@@ -53,7 +53,8 @@ const AddProduct = () => {
       axios.put("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products/" + id, data)
         .then((res) => {
           console.log(res.data);
-          navigate("/products");
+          // setData(res.data)
+          navigate("/admin/products/");
         });
     }
   }
@@ -85,7 +86,7 @@ const AddProduct = () => {
     <div className="container my-4">
 
       {/* Breadcrumb */}
-      <div className="mb-4 text-success fw-semibold">
+      <div className="mb-4 text-dark fw-semibold">
         ADMIN / ADD PRODUCT
       </div>
 

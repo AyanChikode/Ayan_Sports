@@ -9,6 +9,7 @@ function Products() {
 
     function loadData() {
         axios.get("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products/")
+
             .then((res) => {
                 console.log(res.data);  // [{},{}]
                 setData(res.data);
@@ -65,14 +66,14 @@ function Products() {
                                                     <td>{edata.price}</td>
                                                     <td>{edata.mrp}</td>
                                                     <td>
-                                                        <img style={{ width: "100px", height:"100px"}} src={edata.image} alt="" />
+                                                        <img style={{ width: "20px", height:"20px"}} src={edata.image} alt="" />
                                                     </td>
                                                     <td>{edata.brand}</td>
                                                     <td>{edata.size}</td>
                                                     <td>{edata.description}</td>
 
                                                     <td>
-                                                        <Link to={"/addproduct/" + edata.id} >
+                                                        <Link to={"/admin/addproduct/" + edata.id} >
                                                             <button className='btn btn-outline-warning m-1'><i class="fa-solid fa-pencil"></i></button>
                                                         </Link>
                                                         <button onClick={() => handleDelete(edata.id)} className='btn btn-outline-danger'><i class="fa-solid fa-trash"></i></button>

@@ -14,6 +14,7 @@ import Dashboard from "./components/Dashboard"
 import Addproduct from "./components/admin/Addproduct"
 import Allproducts from "./components/Allproducts"
 import Products from "./components/admin/Products"
+import Layout from "./components/admin/Layout"
 
 function App() {
   return (
@@ -26,14 +27,15 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/allproducts" element={<Allproducts />} />
-
+          
 
           <Route path="/adminlogin" element={<Login />} />
-          <Route path="/adminlogin/dashboard" element={<Dashboard/>}/>
-          <Route path="/dashboard/ " element={<Dashboard/>} />
-          <Route path="/addproduct" element={<Addproduct />} />
-          <Route path="/addproduct/:id" element={<Addproduct />} />
-          <Route path="/products" element={<Products />} />
+          <Route path='/admin' element={<Layout />}>
+              <Route index element={<Dashboard />} />
+              <Route path='/admin/addproduct/:id' element={<Addproduct />} />
+              <Route path='/admin/products' element={<Products />} />
+          </Route>
+           
         </Routes>
         <Footer />
       </BrowserRouter>
