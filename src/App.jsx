@@ -27,15 +27,17 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/allproducts" element={<Allproducts />} />
-          
+
 
           <Route path="/adminlogin" element={<Login />} />
+
           <Route path='/admin' element={<Layout />}>
-              <Route index element={<Dashboard />} />
-              <Route path='/admin/addproduct/:id' element={<Addproduct />} />
-              <Route path='/admin/products' element={<Products />} />
+            <Route index element={<Dashboard />} />
+            <Route path='/admin/addproduct' element={<Addproduct />} />
+            <Route path='/admin/addproduct/:id' element={<Addproduct />} />
+            <Route path='/admin/products' element={<Products />} />
           </Route>
-           
+
         </Routes>
         <Footer />
       </BrowserRouter>

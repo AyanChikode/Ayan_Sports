@@ -2,14 +2,15 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
-  let navigate = useNavigate ()
+function Login()  {
+  const navigate = useNavigate();
+
   const [data, setData] = useState({
     name: "",
     password: ""
   });
 
-   const [error, setError] = useState({});
+  const [error, setError] = useState({});
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.id]: e.target.value });
@@ -17,68 +18,71 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-     const objError = {
-      nameError: "",
-      passwordError:""
+
+    let objError = {};
+    let isValid = true;
+
+    // Name validation
+    if (data.name.trim() === "") {
+      objError.nameError = "Name is required!";
+      isValid = false;
+    } else if (data.name.length < 2) {
+      objError.nameError = "Minimum 2 characters required";
+      isValid = false;
     }
 
-   if (data.name.trim() === "") {
-      objError.nameError = "Name is Required !!!"
-    } else if (data.name.trim().length < 2) {
-      objError.nameError = "Minimum 2 charector required"
-    }
-   if (data.password.trim() === "") {
-      objError.passwordError = "Surname is Required !!!";
+    // Password validation
+    if (data.password.trim() === "") {
+      objError.passwordError = "Password is required!";
+      isValid = false;
     } else if (data.password.length < 4) {
-      objError.passwordError = "Minimum 4 number required";;
+      objError.passwordError = "Minimum 4 characters required";
+      isValid = false;
     }
 
     setError(objError);
-    console.log(data);
+
+
+    if (!isValid) return;
 
     axios
       .post("https://695b986a1d8041d5eeb77c41.mockapi.io/Users", data)
       .then((result) => {
         console.log("POST Success:", result.data);
-        setData({ name: "", password: "" });
-      });
-       
-       localStorage.setItem("isLoggedIn", "true");
-      //  localStorage.setItem("user", JSON.stringify(result.data));
 
+        localStorage.setItem("isLoggedIn", "true");
         setData({ name: "", password: "" });
 
-         navigate("/admin");
-      
+        navigate("/admin");
+      })
+      .catch((err) => console.log(err));
   };
+
   useEffect(() => {
-
-        let isLoggedIn = localStorage.getItem("isLoggedIn");
-
-        if (isLoggedIn) {
-            navigate("/admin")
-        };
-
-    }, [])
+    let isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn) {
+      navigate("/admin");
+    }
+  }, [navigate]);
 
   return (
     <>
-      <div>
-        <h1 className="text-center">Login</h1>
-      </div>
+      <h1 className="text-center mb-5">Login</h1>
 
-      <div className="container d-flex justify-content-center align-items-center vh-50">
+      <div className="container d-flex justify-content-center align-items-center vh-50 ">
         <div className="card shadow p-4" style={{ width: "350px" }}>
-          <h3 className="text-center mb-4 text-dark">Login</h3>
+          <h3 className="text-center mb-4">Login</h3>
 
-          <form >
+          <form onSubmit={handleSubmit}>
+
             <div className="mb-3">
-              <label className="form-label text-dark">Name</label>
-              {error.nameError ? <span className='text-danger'>{error.nameError}</span> : <span></span>}
+              <label>Name</label>
+              {error.nameError && (
+                <span className="text-danger d-block">{error.nameError}</span>
+              )}
               <input
-                value={data.name}
                 id="name"
+                value={data.name}
                 className="form-control"
                 placeholder="Enter Name"
                 onChange={handleChange}
@@ -86,19 +90,21 @@ const Login = () => {
             </div>
 
             <div className="mb-3">
-              <label className="form-label text-dark">Password</label>
-              {error.passwordError ? <span className='text-danger'>{error.passwordError}</span> : <span></span>}
+              <label>Password</label>
+              {error.passwordError && (
+                <span className="text-danger d-block">{error.passwordError}</span>
+              )}
               <input
-                value={data.password}
                 id="password"
                 type="password"
+                value={data.password}
                 className="form-control"
-                placeholder="Enter password"
+                placeholder="Enter Password"
                 onChange={handleChange}
               />
             </div>
 
-            <button onClick={handleSubmit}type="submit" className="btn btn-outline-dark w-100">
+            <button type="submit" className="btn btn-outline-dark w-100">
               Login
             </button>
           </form>

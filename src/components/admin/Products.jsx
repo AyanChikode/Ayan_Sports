@@ -74,9 +74,9 @@ function Products() {
 
                                                     <td>
                                                         <Link to={"/admin/addproduct/" + edata.id} >
-                                                            <button className='btn btn-outline-warning m-1'><i class="fa-solid fa-pencil"></i></button>
+                                                            <button className='btn btn-outline-warning m-1 btn-sm'><i class="fa-solid fa-pencil"></i></button>
                                                         </Link>
-                                                        <button onClick={() => handleDelete(edata.id)} className='btn btn-outline-danger'><i class="fa-solid fa-trash"></i></button>
+                                                        <button onClick={() => handleDelete(edata.id)} className='btn btn-outline-danger btn-sm'><i class="fa-solid fa-trash"></i></button>
                                                     </td>
                                                 </tr>
                                             )

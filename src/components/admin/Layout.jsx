@@ -23,7 +23,7 @@ function Layout() {
                   Main Dashboard
                 </Link>
 
-                <Link to={"/admin/addproduct/"} className="list-group-item list-group-item-action py-2">
+                <Link to={"/admin/addproduct"} className="list-group-item list-group-item-action py-2">
                   Add Product
                 </Link>
 
