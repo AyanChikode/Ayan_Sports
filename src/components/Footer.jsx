@@ -70,9 +70,7 @@ function Footer() {
                                     <a href="#!" class="text-reset">Kookaburra</a>
                                 </p>
                             </div>
-                            {/* <!-- Grid column --> */}
 
-                            {/* <!-- Grid column --> */}
                             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                                 {/* <!-- Links --> */}
                                 <h6 class="text-uppercase fw-bold mb-4">
@@ -91,9 +89,7 @@ function Footer() {
                                     <a href="#!" class="text-reset">Help</a>
                                 </p>
                             </div>
-                            {/* <!-- Grid column --> */}
 
-                            {/* <!-- Grid column --> */}
                             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                                 {/* <!-- Links --> */}
                                 <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
@@ -102,24 +98,13 @@ function Footer() {
                                     <i class="fas fa-envelope me-3"></i>
                                     ayan4@gmail.com
                                 </p>
-                                <p><i class="fas fa-phone me-3"></i> +9371377538</p>
                                 <p><i class="fas fa-print me-3"></i> +7261979568</p>
                             </div>
-                            {/* <!-- Grid column --> */}
                         </div>
-                        {/* <!-- Grid row --> */}
                     </div>
                 </section>
-                {/* <!-- Section: Links  --> */}
-
-                {/* <!-- Copyright --> */}
-                {/* <div class="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
-                    © 2021 Copyright: */}
-                    {/* <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a> */}
-                {/* </div> */}
-                {/* <!-- Copyright --> */}
+                
             </footer>
-            {/* <!-- Footer --> */}
 
         </>
     )
