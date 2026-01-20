@@ -31,7 +31,7 @@ function Layout() {
                   Products
                 </Link>
 
-                <button onClick={handleLogout} className="btn btn-danger mt-3">
+                <button onClick={handleLogout} className="btn btn-outline-dark px-4">
                   LOGOUT
                 </button>
 
