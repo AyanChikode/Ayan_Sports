@@ -33,31 +33,48 @@ const AddProduct = () => {
   function handleSubmit(e) {
     e.preventDefault();
      let objError = {};
+     let isValid = true;
+
     // Title Validation
     if (data.title.trim() === "") {
       objError.titleError = "title is required!";
+      isValid = false;
+
     } 
-    // Category Validation
+    // Age Validation
     if (data.category.trim() === "") {
       objError.categoryError = "category is required!";
+      isValid = false;
     } 
+    // price Validation
     if (data.price.trim() === "") {
       objError.priceError = "price is required!";
+      isValid = false;
     } 
+    // MRP Validation
     if (data.mrp.trim() === "") {
       objError.mrpError = "MRP is required!";
+      isValid = false;
     } 
+    // Image Validation
     if (data.image.trim() === "") {
       objError.imageError = "Image is required!";
+      isValid = false;
     }
+    // Brand Validation
     if (data.brand.trim() === "") {
       objError.brandError = "Brand is required!";
+      isValid = false;
     }
+    // Category Validation
     if (data.size.trim() === "") {
-      objError.sizeError = "Size is required!";
+      objError.sizeError = "Category is required!";
+      isValid = false;
     }
+    // Description Validation
     if (data.description.trim() === "") {
       objError.descriptionError = "Description is required!";
+      isValid = false;
     }   
     setError(objError);
     
