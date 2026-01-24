@@ -1,7 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Header() {
+
+  let cartCount = useSelector((state) => state.cart.cartProducts);
+
+  console.log(cartCount.length);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
@@ -54,12 +60,15 @@ function Header() {
             </ul>
 
             {/* Cart */}
-            <div className="ms-4 position-relative text-white">
-              <i className="fa-solid fa-cart-shopping fa-xl"></i>
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                0
-              </span>
-            </div>
+            <Link to={"/cart"}>
+              <div className="ms-4 position-relative text-white">
+                <i className="fa-solid fa-cart-shopping fa-xl"></i>
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {cartCount.length}
+                </span>
+              </div>
+            </Link>
+            <h1 className="text-primary ms-5">[{cartCount.length}]</h1>
           </div>
         </div>
       </nav>

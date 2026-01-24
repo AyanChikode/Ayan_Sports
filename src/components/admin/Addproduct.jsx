@@ -25,37 +25,38 @@ const AddProduct = () => {
 
   function handlechange(edata) {
     setData({ ...data, [edata.target.id]: edata.target.value });
-    
-   
+
+
 
   };
 
   function handleSubmit(e) {
+
     e.preventDefault();
-     let objError = {};
-     let isValid = true;
+    let objError = {};
+    let isValid = true;
 
     // Title Validation
     if (data.title.trim() === "") {
       objError.titleError = "title is required!";
       isValid = false;
 
-    } 
+    }
     // Age Validation
     if (data.category.trim() === "") {
       objError.categoryError = "category is required!";
       isValid = false;
-    } 
+    }
     // price Validation
     if (data.price.trim() === "") {
       objError.priceError = "price is required!";
       isValid = false;
-    } 
+    }
     // MRP Validation
     if (data.mrp.trim() === "") {
       objError.mrpError = "MRP is required!";
       isValid = false;
-    } 
+    }
     // Image Validation
     if (data.image.trim() === "") {
       objError.imageError = "Image is required!";
@@ -75,37 +76,46 @@ const AddProduct = () => {
     if (data.description.trim() === "") {
       objError.descriptionError = "Description is required!";
       isValid = false;
-    }   
+    }
+
     setError(objError);
-    
+
+
 
     if (id === undefined) {
-      axios.post("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products", data)
-        .then((res) => {
-          console.log(res.data);
-          setData({
-            title: "",
-            category: "",
-            price: "",
-            mrp: "",
-            image: "",
-            brand: "",
-            size: "",
-            description: ""
+
+      if (isValid) {
+
+        axios.post("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products", data)
+          .then((res) => {
+            console.log(res.data);
+            setData({
+              title: "",
+              category: "",
+              price: "",
+              mrp: "",
+              image: "",
+              brand: "",
+              size: "",
+              description: ""
+            })
           })
-        })
+      }
 
 
     }
 
     else {
 
-      axios.put("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products/" + id, data)
-        .then((res) => {
-          console.log(res.data);
-          // setData(res.data)
-          navigate("/admin/products/");
-        });
+      if (isValid) {
+
+        axios.put("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products/" + id, data)
+          .then((res) => {
+            console.log(res.data);
+            // setData(res.data)
+            navigate("/admin/products/");
+          });
+      }
     }
   }
 
@@ -147,8 +157,8 @@ const AddProduct = () => {
           <div className="col-md-6">
             <label htmlFor="title" className="form-label">Title</label>
             {error.titleError && (
-                <span className="text-danger d-block">{error.titleError}</span>
-              )}
+              <span className="text-danger d-block">{error.titleError}</span>
+            )}
             <input value={data.title} onChange={handlechange} type="text" className="form-control" id="title" />
           </div>
 
@@ -170,7 +180,7 @@ const AddProduct = () => {
         <div className="row mb-3">
           <div className="col-md-3">
             <label htmlFor="price" className="form-label">Price</label>
-             {error.priceError && (
+            {error.priceError && (
               <span className="text-danger d-block">{error.priceError}</span>
             )}
             <input value={data.price} onChange={handlechange} type="number" className="form-control" id="price" />
@@ -178,7 +188,7 @@ const AddProduct = () => {
 
           <div className="col-md-3">
             <label htmlFor="mrp" className="form-label">MRP</label>
-             {error.mrpError && (
+            {error.mrpError && (
               <span className="text-danger d-block">{error.mrpError}</span>
             )}
             <input value={data.mrp} onChange={handlechange} type="number" className="form-control" id="mrp" />
@@ -197,7 +207,7 @@ const AddProduct = () => {
         <div className="row mb-3">
           <div className="col-md-4">
             <label htmlFor="brand" className="form-label">Brand</label>
-             {error.brandError && (
+            {error.brandError && (
               <span className="text-danger d-block">{error.brandError}</span>
             )}
             <select value={data.brand} className="form-select" onChange={handlechange} id="brand">
@@ -231,8 +241,8 @@ const AddProduct = () => {
         <div className="mb-4">
           <label htmlFor="description" className="form-label">Description</label>
           {error.descriptionError && (
-              <span className="text-danger d-block">{error.descriptionError}</span>
-            )}
+            <span className="text-danger d-block">{error.descriptionError}</span>
+          )}
           <textarea
             value={data.description}
             onChange={handlechange}

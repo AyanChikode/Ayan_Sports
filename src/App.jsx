@@ -15,6 +15,7 @@ import Addproduct from "./components/admin/Addproduct"
 import Allproducts from "./components/Allproducts"
 import Products from "./components/admin/Products"
 import Layout from "./components/admin/Layout"
+import Cart from "./components/Cart"
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/allproducts" element={<Allproducts />} />
+          <Route path="/cart" element={<Cart />} />
 
 
           <Route path="/adminlogin" element={<Login />} />

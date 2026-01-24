@@ -66,7 +66,7 @@ function Products() {
                                                     <td>{edata.price}</td>
                                                     <td>{edata.mrp}</td>
                                                     <td>
-                                                        <img style={{ width: "20px", height:"20px"}} src={edata.image} alt="" />
+                                                        <img style={{ width: "100px", height:"100px"}} src={edata.image} alt="" />
                                                     </td>
                                                     <td>{edata.brand}</td>
                                                     <td>{edata.size}</td>
@@ -74,7 +74,7 @@ function Products() {
 
                                                     <td>
                                                         <Link to={"/admin/addproduct/" + edata.id} >
-                                                            <button className='btn btn-outline-warning m-1 btn-sm'><i class="fa-solid fa-pencil"></i></button>
+                                                            <button className='btn btn-outline-primary m-1 btn-sm'><i class="fa-solid fa-pencil"></i></button>
                                                         </Link>
                                                         <button onClick={() => handleDelete(edata.id)} className='btn btn-outline-danger btn-sm'><i class="fa-solid fa-trash"></i></button>
                                                     </td>
