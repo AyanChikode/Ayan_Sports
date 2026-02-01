@@ -16,6 +16,7 @@ import Allproducts from "./components/Allproducts"
 import Products from "./components/admin/Products"
 import Layout from "./components/admin/Layout"
 import Cart from "./components/Cart"
+import ProductInfo from "./components/ProductInfo"
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/allproducts" element={<Allproducts />} />
+          <Route path="/productinfo/:id" element={<ProductInfo />} />
+
           <Route path="/cart" element={<Cart />} />
 
 
