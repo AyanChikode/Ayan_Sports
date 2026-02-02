@@ -8,6 +8,14 @@ function Cart() {
     const cartProducts = useSelector((state) => state.cart.cartProducts);
 
     console.log(cartProducts);
+    const itemTotal = cartProducts.reduce(
+        (total , item ) => total  +  item.price * item.quantity,
+        0
+    );
+    const deliveryCharge = itemTotal >= 3500 ? 0 : 50 ;
+
+    const finalTotal = itemTotal + deliveryCharge 
+
 
     return (
         <>
@@ -99,19 +107,22 @@ function Cart() {
                                                 <hr class="my-4" />
 
                                                 <div class="d-flex justify-content-between mb-4">
-                                                    <h5 class="text-uppercase">items 3</h5>
-                                                    <h5>€ 132.00</h5>
+                                                    <h5 class="text-success">Item Total</h5>
+                                                    <h5 className="text-success">₹{itemTotal}</h5>
                                                 </div>
 
                                                 <h5 class="text-uppercase mb-3">Shipping</h5>
 
                                                 <div class="mb-4 pb-2">
-                                                    <select data-mdb-select-init>
-                                                        <option value="1">Standard-Delivery- €5.00</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
-                                                        <option value="4">Four</option>
-                                                    </select>
+                                                    
+                                                        <span>Standard-Delivery</span>
+                                                        <span className='ms-5'>
+                                                            {deliveryCharge === 0
+                                                                ? "FREE"
+                                                                : `₹ 
+                                                                ${deliveryCharge}`}
+                                                        </span>
+                                                    
                                                 </div>
 
                                                 <h5 class="text-uppercase mb-3">Give code</h5>
@@ -125,10 +136,10 @@ function Cart() {
 
                                                 <hr class="my-4" />
 
-                                                <div class="d-flex justify-content-between mb-5">
-                                                    <h5 class="text-uppercase">Total price</h5>
-                                                    <h5>€ 137.00</h5>
-                                                </div>
+                                                 <div className="d-flex justify-content-between mb-4">
+                                                    <strong>Total</strong>
+                                                    <strong>₹ {finalTotal}</strong>
+                                                 </div>
 
                                                 <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-block btn-lg"
                                                     data-mdb-ripple-color="dark">Register</button>
