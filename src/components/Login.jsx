@@ -67,7 +67,7 @@ function Login()  {
 
   return (
     <>
-      <h1 className="text-center mb-5">Login</h1>
+      <h1 className="text-center mb-5   px-4 py-2 fw-semibold "></h1>
 
       <div className="container d-flex justify-content-center align-items-center vh-50 ">
         <div className="card shadow p-4" style={{ width: "350px" }}>
@@ -104,7 +104,7 @@ function Login()  {
               />
             </div>
 
-            <button type="submit" className="btn btn-outline-dark w-100">
+            <button type="submit" className="btn btn-outline-primary rounded-pill px-4 py-2 fw-semibold shadow-sm w-100">
               Login
             </button>
           </form>

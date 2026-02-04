@@ -155,19 +155,19 @@ const AddProduct = () => {
         {/* Title & Category */}
         <div className="row mb-3">
           <div className="col-md-6">
-            <label htmlFor="title" className="form-label">Title</label>
+            <label htmlFor="title" className="form-label px-4 py-2 fw-semibold">Title</label>
             {error.titleError && (
-              <span className="text-danger d-block">{error.titleError}</span>
+              <span className="text-danger d-block ">{error.titleError}</span>
             )}
             <input value={data.title} onChange={handlechange} type="text" className="form-control" id="title" />
           </div>
 
           <div className="col-md-6">
-            <label htmlFor="category" className="form-label">Age</label>
+            <label htmlFor="category" className="form-label px-4 py-2 fw-semibold">Age</label>
             {error.categoryError && (
               <span className="text-danger d-block">{error.categoryError}</span>
             )}
-            <select value={data.category} onChange={handlechange} className="form-select" id="category">
+            <select value={data.category} onChange={handlechange} className="form-select px-4 py-2 fw-semibold" id="category">
               <option>Choose Category...</option>
               <option>U-17</option>
               <option>U-19</option>
@@ -179,7 +179,7 @@ const AddProduct = () => {
         {/* Price, MRP, Image */}
         <div className="row mb-3">
           <div className="col-md-3">
-            <label htmlFor="price" className="form-label">Price</label>
+            <label htmlFor="price" className="form-label px-4 py-2 fw-semibold">Price</label>
             {error.priceError && (
               <span className="text-danger d-block">{error.priceError}</span>
             )}
@@ -187,7 +187,7 @@ const AddProduct = () => {
           </div>
 
           <div className="col-md-3">
-            <label htmlFor="mrp" className="form-label">MRP</label>
+            <label htmlFor="mrp" className="form-label px-4 py-2 fw-semibold">MRP</label>
             {error.mrpError && (
               <span className="text-danger d-block">{error.mrpError}</span>
             )}
@@ -195,7 +195,7 @@ const AddProduct = () => {
           </div>
 
           <div className="col-md-3">
-            <label htmlFor="image" className="form-label">Image</label>
+            <label htmlFor="image" className="form-label px-4 py-2 fw-semibold">Image</label>
             {error.imageError && (
               <span className="text-danger d-block">{error.imageError}</span>
             )}
@@ -206,11 +206,11 @@ const AddProduct = () => {
         {/* Brand, Size */}
         <div className="row mb-3">
           <div className="col-md-4">
-            <label htmlFor="brand" className="form-label">Brand</label>
+            <label htmlFor="brand" className="form-label px-4 py-2 fw-semibold">Brand</label>
             {error.brandError && (
               <span className="text-danger d-block">{error.brandError}</span>
             )}
-            <select value={data.brand} className="form-select" onChange={handlechange} id="brand">
+            <select value={data.brand} className="form-select px-4 py-2 fw-semibold" onChange={handlechange} id="brand">
               <option>Choose Brand...</option>
               <option>SG</option>
               <option>SS</option>
@@ -222,7 +222,7 @@ const AddProduct = () => {
           </div>
 
           <div className="col-md-4">
-            <label htmlFor="size" className="form-label">Category</label>
+            <label htmlFor="size" className="form-label  px-4 py-2 fw-semibold">Category</label>
             {error.sizeError && (
               <span className="text-danger d-block">{error.sizeError}</span>
             )}
@@ -239,7 +239,7 @@ const AddProduct = () => {
 
         {/* Description */}
         <div className="mb-4">
-          <label htmlFor="description" className="form-label">Description</label>
+          <label htmlFor="description" className="form-label px-4 py-2 fw-semibold">Description</label>
           {error.descriptionError && (
             <span className="text-danger d-block">{error.descriptionError}</span>
           )}
@@ -253,7 +253,7 @@ const AddProduct = () => {
         </div>
 
         {/* Submit */}
-        <button onClick={handleSubmit} className="btn btn-outline-dark px-4">
+        <button onClick={handleSubmit} className="btn btn-outline-primary rounded-pill px-4 py-2 fw-semibold shadow-sm">
           Submit
         </button>
 

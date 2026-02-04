@@ -50,7 +50,7 @@ function Products() {
                                         <th scope="col">image</th>
                                         <th scope="col">brand</th>
                                         <th scope="col">size</th>
-                                        <th scope="col">description</th>
+                                        {/* <th scope="col">description</th> */}
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
@@ -70,13 +70,13 @@ function Products() {
                                                     </td>
                                                     <td>{edata.brand}</td>
                                                     <td>{edata.size}</td>
-                                                    <td>{edata.description}</td>
+                                                    {/* <td>{edata.description}</td> */}
 
                                                     <td>
                                                         <Link to={"/admin/addproduct/" + edata.id} >
-                                                            <button className='btn btn-outline-primary m-1 btn-sm'><i class="fa-solid fa-pencil"></i></button>
+                                                            <button className='btn btn-outline-primary rounded-pill px-4 py-2 fw-semibold shadow-sm'><i class="fa-solid fa-pencil"></i></button>
                                                         </Link>
-                                                        <button onClick={() => handleDelete(edata.id)} className='btn btn-outline-danger btn-sm'><i class="fa-solid fa-trash"></i></button>
+                                                        <button onClick={() => handleDelete(edata.id)} className='btn btn-outline-danger rounded-pill px-4 py-2 fw-semibold shadow-sm'><i class="fa-solid fa-trash"></i></button>
                                                     </td>
                                                 </tr>
                                             )

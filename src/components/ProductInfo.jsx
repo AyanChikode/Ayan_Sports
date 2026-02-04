@@ -6,7 +6,7 @@ import { addToCart } from '../state/cartSlice';
 
 function ProductInfo() {
 
-    const { id } = useParams(); // 👈 URL se id
+    const { id } = useParams(); 
     const dispatch = useDispatch();
     const [product, setProduct] = useState(null);
 
@@ -33,13 +33,13 @@ function ProductInfo() {
                                 <h6>{product.brand}</h6>
                                 <h4>₹ {product.price}</h4>
                                 <del>₹ {product.mrp}</del>
-                                <p>Size: {product.size}</p>
+                                <p className='text-danger'><b className='text-dark'>description:</b>{product.description}</p>
 
                                 <button
                                     onClick={() =>
                                       dispatch(addToCart({ ...product, quantity: 1 }))
                                     }
-                                    className="btn btn-primary"
+                                    className="btn btn-outline-primary rounded-pill px-4 py-2 fw-semibold shadow-sm"
                                 >
                                     Add to Cart
                                 </button>
