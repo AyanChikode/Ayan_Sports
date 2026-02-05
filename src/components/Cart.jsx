@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { removeProductFromCart, incrementByQuantity, decrementByQuantity } from '../state/cartSlice';
 
@@ -8,13 +8,30 @@ function Cart() {
     const cartProducts = useSelector((state) => state.cart.cartProducts);
 
     console.log(cartProducts);
-    const itemTotal = cartProducts.reduce(
-        (total , item ) => total  +  item.price * item.quantity,
-        0
-    );
-    const deliveryCharge = itemTotal >= 3500 ? 0 : 50 ;
+//     const itemTotal = cartProducts.reduce(
+//     (total, item) => total + item.price * item.quantity,
+//   0
+//     );
 
-    const finalTotal = itemTotal + deliveryCharge 
+// const deliveryCharge = itemTotal >= 3500 ? 0 : 50;
+// const finalTotal = itemTotal + deliveryCharge;
+
+const itemTotal = useMemo (() => {
+    return cartProducts.reduce(
+        (total, item) => total + item.price * item.quantity,
+         0
+    );
+}, [cartProducts])
+
+    const deliveryCharge = useMemo(() => {
+         itemTotal >= 3500 ? 0 : 50;
+    }, [itemTotal]);
+
+    const finalTotal = useMemo(() =>{
+        itemTotal + deliveryCharge;
+    },[itemTotal , deliveryCharge])
+
+
 
 
     return (
