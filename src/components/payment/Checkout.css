@@ -1,0 +1,46 @@
+.checkout-page {
+  background: #f8f9fa;
+  padding: 50px 0;
+}
+
+.checkout-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+}
+
+.checkout-title {
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.form-control,
+.form-select {
+  border-radius: 10px;
+  padding: 14px 20px;
+}
+
+.form-label {
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.summary-box {
+  border-radius: 16px;
+  background: #fdfdff;
+  border: 1px solid #e9ecef;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.place-order-btn {
+  border-radius: 50px;
+  padding: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}

@@ -16,8 +16,7 @@ function Allproducts() {
     
 
     useEffect(() => {
-        axios
-          .get("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products")
+        axios.get("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products")
           .then(res => setProducts(res.data));
     }, []);
 
@@ -34,9 +33,12 @@ function Allproducts() {
 
     const lastProducts = currentPage * productPerPage ;
     const firstProducts = lastProducts - productPerPage ;
-    const currentProducts = products.slice(firstProducts, lastProducts) 
+    const currentProducts = products.slice(firstProducts, lastProducts);
 
-   const  totalPages = Math.ceil(products.length /productPerPage)
+
+    const  totalPages = Math.ceil(products.length /productPerPage);
+
+
     return (
         <>
             <h1 className="text-center">All Products</h1>

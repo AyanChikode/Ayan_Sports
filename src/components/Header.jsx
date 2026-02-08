@@ -68,7 +68,7 @@ function Header() {
                 </span>
               </div>
             </Link>
-            <h1 className="text-primary ms-5">[{cartCount.length}]</h1>
+            {/* <h1 className="text-primary ms-5">[{cartCount.length}]</h1> */}
           </div>
         </div>
       </nav>
