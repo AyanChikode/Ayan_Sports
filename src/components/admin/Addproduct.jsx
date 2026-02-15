@@ -11,12 +11,12 @@ const AddProduct = () => {
 
   const [data, setData] = useState({
     title: "",
-    category: "",
+    age: "",
     price: "",
     mrp: "",
-    image: "",
+    path: "",
     brand: "",
-    size: "",
+    category: "",
     description: ""
   })
 
@@ -43,8 +43,8 @@ const AddProduct = () => {
 
     }
     // Age Validation
-    if (data.category.trim() === "") {
-      objError.categoryError = "category is required!";
+    if (data.age.trim() === "") {
+      objError.ageError = "age is required!";
       isValid = false;
     }
     // price Validation
@@ -58,8 +58,8 @@ const AddProduct = () => {
       isValid = false;
     }
     // Image Validation
-    if (data.image.trim() === "") {
-      objError.imageError = "Image is required!";
+    if (data.path.trim() === "") {
+      objError.pathError = "path is required!";
       isValid = false;
     }
     // Brand Validation
@@ -68,8 +68,8 @@ const AddProduct = () => {
       isValid = false;
     }
     // Category Validation
-    if (data.size.trim() === "") {
-      objError.sizeError = "Category is required!";
+    if (data.category.trim() === "") {
+      objError.categoryError = "Category is required!";
       isValid = false;
     }
     // Description Validation
@@ -86,17 +86,17 @@ const AddProduct = () => {
 
       if (isValid) {
 
-        axios.post("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products", data)
+        axios.post("http://localhost:8080/products/register", data)
           .then((res) => {
             console.log(res.data);
             setData({
               title: "",
-              category: "",
+              age: "",
               price: "",
               mrp: "",
-              image: "",
+              path: "",
               brand: "",
-              size: "",
+              category: "",
               description: ""
             })
           })
@@ -109,7 +109,9 @@ const AddProduct = () => {
 
       if (isValid) {
 
-        axios.put("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products/" + id, data)
+       axios.put(`http://localhost:8080/products/update/${id}`, data)
+
+
           .then((res) => {
             console.log(res.data);
             // setData(res.data)
@@ -122,16 +124,17 @@ const AddProduct = () => {
 
   useEffect(() => {
     if (id) {
-      axios.get("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products/" + id)
+      axios.get("http://localhost:8080/products/" + id)
+
         .then((res) => {
           console.log(res.data)
           setData({
             title: res.data.title,
-            category: res.data.category,
+            age: res.data.age,
             price: res.data.price,
-            image: res.data.image,
+            path: res.data.path,
             mrp: res.data.mrp,
-            size: res.data.size,
+            category: res.data.category,
             brand: res.data.brand,
             description: res.data.description
           });
@@ -163,15 +166,15 @@ const AddProduct = () => {
           </div>
 
           <div className="col-md-6">
-            <label htmlFor="category" className="form-label px-4 py-2 fw-semibold">Age</label>
-            {error.categoryError && (
-              <span className="text-danger d-block">{error.categoryError}</span>
+            <label htmlFor="age" className="form-label px-4 py-2 fw-semibold">Age</label>
+            {error.ageError && (
+              <span className="text-danger d-block">{error.ageError}</span>
             )}
-            <select value={data.category} onChange={handlechange} className="form-select px-4 py-2 fw-semibold" id="category">
-              <option>Choose Category...</option>
+            <select value={data.age} onChange={handlechange} className="form-select px-4 py-2 fw-semibold" id="age">
+              <option>Choose Age...</option>
               <option>U-17</option>
               <option>U-19</option>
-              <option>Upto-19</option>
+              <option>above 19</option>
             </select>
           </div>
         </div>
@@ -195,11 +198,11 @@ const AddProduct = () => {
           </div>
 
           <div className="col-md-3">
-            <label htmlFor="image" className="form-label px-4 py-2 fw-semibold">Image</label>
-            {error.imageError && (
-              <span className="text-danger d-block">{error.imageError}</span>
+            <label htmlFor="path" className="form-label px-4 py-2 fw-semibold">Image</label>
+            {error.pathError && (
+              <span className="text-danger d-block">{error.pathError}</span>
             )}
-            <input value={data.image} onChange={handlechange} type="text" className="form-control" id="image" />
+            <input value={data.path} onChange={handlechange} type="text" className="form-control" id="path" />
           </div>
         </div>
 
@@ -223,10 +226,10 @@ const AddProduct = () => {
 
           <div className="col-md-4">
             <label htmlFor="size" className="form-label  px-4 py-2 fw-semibold">Category</label>
-            {error.sizeError && (
-              <span className="text-danger d-block">{error.sizeError}</span>
+            {error.categoryError && (
+              <span className="text-danger d-block">{error.categoryError}</span>
             )}
-            <select value={data.size} onChange={handlechange} className="form-select" id="size">
+            <select value={data.category} onChange={handlechange} className="form-select" id="category">
               <option>Choose Product</option>
               <option>Bat</option>
               <option>Ball</option>

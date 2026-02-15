@@ -16,7 +16,7 @@ function Allproducts() {
     
 
     useEffect(() => {
-        axios.get("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products")
+        axios.get("http://localhost:8080/products/list")
           .then(res => setProducts(res.data));
     }, []);
 
@@ -49,11 +49,16 @@ function Allproducts() {
                         <div className="col-lg-3" key={item.id}>
                             <div className="card m-2">
 
-                                <img
-                                    src={item.image}
+                               <img
+                                  src={item.path}
                                     className="card-img-top"
-                                    style={{ cursor: "pointer" }}
-                                    onClick={() => openProductInfo(item.id)}
+                                    style={{
+                                        height: "250px",
+                                        width: "100%",
+                                        objectFit: "cover",
+                                        cursor: "pointer"
+                                    }}
+                                   onClick={() => openProductInfo(item.id)}
                                 />
 
                                 <div className="card-body">

@@ -71,7 +71,7 @@ function Cart() {
                           >
                             <div className="col-md-2 col-lg-1">
                               <img
-                                src={product.image}
+                                src={product.path}
                                 className="img-fluid rounded-3"
                                 alt={product.title}
                               />
