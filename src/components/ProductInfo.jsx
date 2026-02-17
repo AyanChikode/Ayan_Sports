@@ -16,11 +16,10 @@ function ProductInfo() {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(
-  "http://localhost:8080/products/" + id
-);
-
-        setProduct(response.data);
+        const { data } = await axios.get(
+          `http://localhost:8080/products/${id}`
+        );
+        setProduct(data);
       } catch (err) {
         setError("Product not found");
       } finally {
@@ -32,7 +31,9 @@ function ProductInfo() {
   }, [id]);
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ ...product, quantity: 1 }));
+    if (product) {
+      dispatch(addToCart({ ...product, quantity: 1 }));
+    }
   };
 
   if (loading) {
@@ -44,44 +45,45 @@ function ProductInfo() {
   }
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-center mb-4">Product Info</h1>
+    <div className="container py-5">
+      <div className="row align-items-center">
 
-      <div className="row">
-        {/* Product Image */}
-        <div className="col-md-6 mb-4">
+        {/* Image Section */}
+        <div className="col-12 col-md-6 mb-4 text-center">
           <img
             src={product?.path}
             alt={product?.title}
             className="img-fluid rounded"
+            style={{ maxHeight: "400px", objectFit: "contain" }}
           />
         </div>
 
-        {/* Product Details */}
-        <div className="col-md-6">
+        {/* Details Section */}
+        <div className="col-12 col-md-6">
           <h2 className="mb-3">{product?.title}</h2>
 
           <div className="mb-3">
             <span className="h4 me-2">₹{product?.price}</span>
             {product?.mrp && (
-              <span className="text-muted">
-                <s>₹{product.mrp}</s>
+              <span className="text-muted text-decoration-line-through">
+                ₹{product.mrp}
               </span>
             )}
           </div>
 
-          <p className="mb-4 text-muted">
+          <p className="text-muted mb-4">
             {product?.description ||
               "High quality product with premium features."}
           </p>
 
           <button
             onClick={handleAddToCart}
-            className="btn btn-outline-primary rounded-pill px-4 py-2 fw-semibold"
+            className="btn btn-primary w-25 w-md-auto"
           >
             Add to Cart
           </button>
         </div>
+
       </div>
     </div>
   );

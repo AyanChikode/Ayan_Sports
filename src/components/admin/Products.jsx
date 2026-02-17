@@ -61,13 +61,13 @@ function Products() {
                                             return (
                                                 <tr key={i}>
                                                     <th scope="row">{i + 1}</th>
+                                                    <td>
+                                                        <img style={{ width: "100px", height:"100px"}} src={edata.path} alt="" />
+                                                    </td>
                                                     <td>{edata.title}</td>
                                                     <td>{edata.age}</td>
                                                     <td>{edata.price}</td>
                                                     <td>{edata.mrp}</td>
-                                                    <td>
-                                                        <img style={{ width: "100px", height:"100px"}} src={edata.path} alt="" />
-                                                    </td>
                                                     <td>{edata.brand}</td>
                                                     <td>{edata.category}</td>
                                                     {/* <td>{edata.description}</td> */}
