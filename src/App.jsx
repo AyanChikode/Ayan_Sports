@@ -18,6 +18,7 @@ import Layout from "./components/admin/Layout"
 import Cart from "./components/Cart"
 import ProductInfo from "./components/ProductInfo"
 import Checkout from "./components/payment/Checkout"
+import Orders from "./components/admin/Orders"
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             <Route path='/admin/addproduct' element={<Addproduct />} />
             <Route path='/admin/addproduct/:id' element={<Addproduct />} />
             <Route path='/admin/products' element={<Products />} />
+            <Route path='/admin/orders' element={<Orders />} />
           </Route>
 
         </Routes>

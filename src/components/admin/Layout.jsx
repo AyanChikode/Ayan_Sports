@@ -30,6 +30,9 @@ function Layout() {
                 <Link to={"/admin/products"} className="list-group-item list-group-item-action py-2">
                   Products
                 </Link>
+                <Link to={"/admin/orders"} className="list-group-item list-group-item-action py-2">
+                  Orders
+                </Link>
 
                 <button onClick={handleLogout} className="btn btn-outline-dark rounded-pill px-4 py-2 mt-3 fw-semibold shadow-sm">
                   LOGOUT

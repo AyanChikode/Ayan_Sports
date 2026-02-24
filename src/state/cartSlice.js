@@ -1,77 +1,85 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    cartProducts: []
+  cartProducts: [],
 };
 
 export const cartSlice = createSlice({
-    name: 'cart',
-    initialState,
-    reducers: {
-        // addToCart: (state, action) => {
-        //     console.log(action.payload);
-        //     state.cartProducts.push(action.payload);
-        // }
+  name: "cart",
+  initialState,
+  reducers: {
 
-        addToCart: (state, action) => {
-            let cartProducts = state.cartProducts;
-            let productId = action.payload.id;
+    // ✅ Add to Cart
+    addToCart: (state, action) => {
+      const productId = action.payload.id;
 
-            const foundProduct = cartProducts.find((product) => {
-                return product.id === productId
-            });
+      const foundProduct = state.cartProducts.find(
+        (product) => product.id === productId
+      );
 
-            if (foundProduct) {
-                foundProduct.quantity += 1;
-            } else {
-                state.cartProducts.push(action.payload);
-            }
-
-        },
-
-        removeProductFromCart: (state, action) => {
-
-            let productId = action.payload;
-
-            const filteredProduct = state.cartProducts.filter((product) => {
-                return product.id !== productId;
-            });
-
-            state.cartProducts = filteredProduct;
-
-        },
-
-
-        incrementByQuantity: (state, action) => {
-            let productId = action.payload;
-
-            const foundProduct = state.cartProducts.find((product) => {
-                return product.id === productId;
-            });
-
-            if (foundProduct) {
-                foundProduct.quantity += 1;
-            }
-
-        },
-
-        decrementByQuantity: (state, action) => {
-            let productId = action.payload;
-
-            const foundProduct = state.cartProducts.find((product) => {
-                return product.id === productId;
-            });
-
-            if (foundProduct && foundProduct.quantity > 1) {
-                foundProduct.quantity -= 1;
-            }
-
-        },
-
+      if (foundProduct) {
+        foundProduct.quantity += 1;
+      } else {
+        state.cartProducts.push({ ...action.payload, quantity: 1 });
+      }
     },
-})
 
-// Action creators are generated for each case reducer function
-export const { addToCart, removeProductFromCart, incrementByQuantity, decrementByQuantity } = cartSlice.actions
+    // ✅ Remove Product Completely
+    removeProductFromCart: (state, action) => {
+      const productId = action.payload;
 
-export default cartSlice.reducer
+      state.cartProducts = state.cartProducts.filter(
+        (product) => product.id !== productId
+      );
+    },
+
+    // ✅ Increase Quantity
+    incrementByQuantity: (state, action) => {
+      const productId = action.payload;
+
+      const foundProduct = state.cartProducts.find(
+        (product) => product.id === productId
+      );
+
+      if (foundProduct) {
+        foundProduct.quantity += 1;
+      }
+    },
+
+    // ✅ Decrease Quantity
+    decrementByQuantity: (state, action) => {
+      const productId = action.payload;
+
+      const foundProduct = state.cartProducts.find(
+        (product) => product.id === productId
+      );
+
+      if (foundProduct) {
+        if (foundProduct.quantity > 1) {
+          foundProduct.quantity -= 1;
+        } else {
+          // agar quantity 1 hai to remove kar do
+          state.cartProducts = state.cartProducts.filter(
+            (product) => product.id !== productId
+          );
+        }
+      }
+    },
+
+    // ✅ Clear Entire Cart (Payment Success ke baad use hoga)
+    clearCart: (state) => {
+      state.cartProducts = [];
+    },
+  },
+});
+
+// ✅ Export actions
+export const {
+  addToCart,
+  removeProductFromCart,
+  incrementByQuantity,
+  decrementByQuantity,
+  clearCart,
+} = cartSlice.actions;
+
+export default cartSlice.reducer;
