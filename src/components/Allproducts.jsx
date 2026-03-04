@@ -1,134 +1,128 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../state/cartSlice';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCartAsync } from "../state/cartSlice";
+import { useNavigate } from "react-router-dom";
 
-function Allproducts() {
+function AllProducts() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const [products, setProducts] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1)
+  const { loading } = useSelector((state) => state.cart);
 
-    const productPerPage = 4 ;
+  const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
-    
+  const productPerPage = 4;
 
-    useEffect(() => {
-        axios.get("http://localhost:8080/products/list")
-          .then(res => setProducts(res.data));
-    }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/products/list")
+      .then((res) => setProducts(res.data))
+      .catch((err) => console.log(err));
+  }, []);
 
-    function addProductToCart(product) {
-        dispatch(addToCart({ ...product, quantity: 1 }));
-    }
+  const lastProductIndex = currentPage * productPerPage;
+  const firstProductIndex = lastProductIndex - productPerPage;
 
-    //  image click handler
-    function openProductInfo(id) {
-        navigate(`/productinfo/${id}`);
-    }
-     
-    // Pagenation calculation
+  const currentProducts = products.slice(
+    firstProductIndex,
+    lastProductIndex
+  );
 
-    const lastProducts = currentPage * productPerPage ;
-    const firstProducts = lastProducts - productPerPage ;
-    const currentProducts = products.slice(firstProducts, lastProducts);
+  const totalPages = Math.ceil(products.length / productPerPage);
 
+  const openProductInfo = (id) => {
+    navigate(`/productinfo/${id}`);
+  };
 
-    const  totalPages = Math.ceil(products.length /productPerPage);
+  return (
+    <>
+      <h1 className="text-center mt-3">All Products</h1>
 
+      <div className="container mt-4">
+        <div className="row">
+          {currentProducts.map((item) => (
+            <div className="col-lg-3" key={item.id}>
+              <div className="card m-2 shadow-sm">
 
-    return (
-        <>
-            <h1 className="text-center">All Products</h1>
+                <img
+                  src={item.path}
+                  alt={item.title}
+                  className="card-img-top"
+                  style={{
+                    height: "220px",
+                    objectFit: "cover",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => openProductInfo(item.id)}
+                />
 
-            <div className="container mt-4">
-                <div className="row">
-                    {currentProducts.map((item) => (
-                        <div className="col-lg-3" key={item.id}>
-                            <div className="card m-2">
+                <div className="card-body text-center">
+                  <h6>{item.brand}</h6>
+                  <h5>{item.title}</h5>
+                  <h4>₹ {item.price}</h4>
+                  <del className="text-muted">₹ {item.mrp}</del>
 
-                               <img
-                                  src={item.path}
-                                    className="card-img-top"
-                                    style={{
-                                        height: "250px",
-                                        width: "100%",
-                                        objectFit: "cover",
-                                        cursor: "pointer"
-                                    }}
-                                   onClick={() => openProductInfo(item.id)}
-                                />
-
-                                <div className="card-body">
-                                    <h5>{item.title}</h5>
-                                    <h6>{item.brand}</h6>
-                                    <h4>₹ {item.price}</h4>
-                                    <del>₹ {item.mrp}</del>
-                                    
-
-                                    <button
-                                        onClick={() => addProductToCart(item)}
-                                        className="btn btn-outline-primary rounded-pill px-4 py-2 fw-semibold shadow-sm"
-                                    >
-                                        Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+                  <button
+                    disabled={loading}
+                    onClick={() => dispatch(addToCartAsync(item))}
+                    className="btn btn-outline-primary rounded-pill px-4 py-2 fw-semibold shadow-sm mt-2"
+                  >
+                    {loading ? "Adding..." : "Add To Cart"}
+                  </button>
                 </div>
+              </div>
             </div>
+          ))}
+        </div>
+      </div>
 
-            {/* bootstrap pagenation */}
-          <nav className="d-flex justify-content-center mt-4">
-  <ul className="pagination">
+      <nav className="d-flex justify-content-center mt-4">
+        <ul className="pagination">
 
-    {currentPage > 1 && (
-      <li className="page-item">
-        <button
-          className="page-link"
-          onClick={() => setCurrentPage(currentPage - 1)}
-        >
-          Prev
-        </button>
-      </li>
-    )}
+          {currentPage > 1 && (
+            <li className="page-item">
+              <button
+                className="page-link"
+                onClick={() => setCurrentPage(currentPage - 1)}
+              >
+                Prev
+              </button>
+            </li>
+          )}
 
-    {[...Array(totalPages)].map((_, index) => (
-      <li
-        key={index}
-        className={
-          "page-item " + (currentPage === index + 1 ? "active" : "")
-        }
-      >
-        <button
-          className="page-link"
-          onClick={() => setCurrentPage(index + 1)}
-        >
-          {index + 1}
-        </button>
-      </li>
-    ))}
+          {[...Array(totalPages)].map((_, index) => (
+            <li
+              key={index}
+              className={`page-item ${
+                currentPage === index + 1 ? "active" : ""
+              }`}
+            >
+              <button
+                className="page-link"
+                onClick={() => setCurrentPage(index + 1)}
+              >
+                {index + 1}
+              </button>
+            </li>
+          ))}
 
-    {currentPage < totalPages && (
-      <li className="page-item">
-        <button
-          className="page-link"
-          onClick={() => setCurrentPage(currentPage + 1)}
-        >
-          Next
-        </button>
-      </li>
-    )}
+          {currentPage < totalPages && (
+            <li className="page-item">
+              <button
+                className="page-link"
+                onClick={() => setCurrentPage(currentPage + 1)}
+              >
+                Next
+              </button>
+            </li>
+          )}
 
-  </ul>
-</nav>
-
-
-        </>
-    );
+        </ul>
+      </nav>
+    </>
+  );
 }
 
-export default Allproducts;
+export default AllProducts;

@@ -1,85 +1,104 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const initialState = {
-  cartProducts: [],
-};
+export const fetchCartAsync = createAsyncThunk(
+  "cart/fetchCart",
+  async () => {
+    return [];
+  }
+);
 
-export const cartSlice = createSlice({
+
+export const addToCartAsync = createAsyncThunk(
+  "cart/addToCart",
+  async (product) => {
+    return product;
+  }
+);
+
+
+export const removeFromCartAsync = createAsyncThunk(
+  "cart/removeFromCart",
+  async (id) => {
+    return id;
+  }
+);
+
+
+export const updateQuantityAsync = createAsyncThunk(
+  "cart/updateQuantity",
+  async ({ id, type }) => {
+    return { id, type };
+  }
+);
+
+const cartSlice = createSlice({
   name: "cart",
-  initialState,
+  initialState: {
+    cartProducts: [],
+    loading: false,
+    error: null,
+  },
+
+
   reducers: {
-
-    // ✅ Add to Cart
-    addToCart: (state, action) => {
-      const productId = action.payload.id;
-
-      const foundProduct = state.cartProducts.find(
-        (product) => product.id === productId
-      );
-
-      if (foundProduct) {
-        foundProduct.quantity += 1;
-      } else {
-        state.cartProducts.push({ ...action.payload, quantity: 1 });
-      }
-    },
-
-    // ✅ Remove Product Completely
-    removeProductFromCart: (state, action) => {
-      const productId = action.payload;
-
-      state.cartProducts = state.cartProducts.filter(
-        (product) => product.id !== productId
-      );
-    },
-
-    // ✅ Increase Quantity
-    incrementByQuantity: (state, action) => {
-      const productId = action.payload;
-
-      const foundProduct = state.cartProducts.find(
-        (product) => product.id === productId
-      );
-
-      if (foundProduct) {
-        foundProduct.quantity += 1;
-      }
-    },
-
-    // ✅ Decrease Quantity
-    decrementByQuantity: (state, action) => {
-      const productId = action.payload;
-
-      const foundProduct = state.cartProducts.find(
-        (product) => product.id === productId
-      );
-
-      if (foundProduct) {
-        if (foundProduct.quantity > 1) {
-          foundProduct.quantity -= 1;
-        } else {
-          // agar quantity 1 hai to remove kar do
-          state.cartProducts = state.cartProducts.filter(
-            (product) => product.id !== productId
-          );
-        }
-      }
-    },
-
-    // ✅ Clear Entire Cart (Payment Success ke baad use hoga)
     clearCart: (state) => {
       state.cartProducts = [];
     },
   },
+
+
+  extraReducers: (builder) => {
+    builder
+
+      .addCase(fetchCartAsync.fulfilled, (state, action) => {
+        state.cartProducts = action.payload;
+      })
+
+      .addCase(addToCartAsync.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(addToCartAsync.fulfilled, (state, action) => {
+        state.loading = false;
+
+        const existingItem = state.cartProducts.find(
+          (item) => item.id === action.payload.id
+        );
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          state.cartProducts.push({
+            ...action.payload,
+            quantity: 1,
+          });
+        }
+      })
+      .addCase(addToCartAsync.rejected, (state) => {
+        state.loading = false;
+        state.error = "Failed to add product";
+      })
+
+      .addCase(removeFromCartAsync.fulfilled, (state, action) => {
+        state.cartProducts = state.cartProducts.filter(
+          (item) => item.id !== action.payload
+        );
+      })
+
+      .addCase(updateQuantityAsync.fulfilled, (state, action) => {
+        const { id, type } = action.payload;
+
+        const item = state.cartProducts.find((p) => p.id === id);
+
+        if (item) {
+          if (type === "increment") item.quantity += 1;
+          if (type === "decrement" && item.quantity > 1)
+            item.quantity -= 1;
+        }
+      });
+  },
 });
 
-// ✅ Export actions
-export const {
-  addToCart,
-  removeProductFromCart,
-  incrementByQuantity,
-  decrementByQuantity,
-  clearCart,
-} = cartSlice.actions;
+
+export const { clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

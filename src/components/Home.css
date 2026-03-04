@@ -1,0 +1,18 @@
+/* ===== Carousel Image Fix ===== */
+.carousel-img {
+  height: 500px;          /* Yaha height control karo */
+  object-fit: cover;      /* Image stretch nahi hogi */
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .carousel-img {
+    height: 250px;
+  }
+}
+
+/* Player Images */
+.player-img {
+  height: 300px;
+  object-fit: cover;
+}

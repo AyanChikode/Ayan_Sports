@@ -1,4 +1,5 @@
 import React from "react";
+import './Home.css'
 
 function Home() {
   return (
@@ -81,7 +82,7 @@ function Home() {
           </div>
 
           {/* Ronaldo */}
-          <div className="col-lg-4 col-md-6">
+          {/* <div className="col-lg-4 col-md-6">
             <div className="card shadow-lg border-0 text-center">
               <img
                 src="/assets/images/ronaldo.png"
@@ -91,12 +92,12 @@ function Home() {
               <div className="card-body">
                 <h5 className="card-title">Cristiano Ronaldo</h5>
                 <p className="text-muted">Football Superstar</p>
-              </div>
-            </div>
-          </div>
+              </div> */}
+            {/* </div>
+          </div> */}
 
           {/* Nadal */}
-          <div className="col-lg-4 col-md-6">
+          {/* <div className="col-lg-4 col-md-6">
             <div className="card shadow-lg border-0 text-center">
               <img
                 src="/assets/images/nadal.png"
@@ -108,7 +109,7 @@ function Home() {
                 <p className="text-muted">Tennis Champion</p>
               </div>
             </div>
-          </div>
+          </div> */}
 
         </div>
       </div>

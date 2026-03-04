@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../state/cartSlice";
+import { addToCartAsync } from "../state/cartSlice"; // ✅ FIXED
 
 function ProductInfo() {
   const { id } = useParams();
@@ -32,7 +32,7 @@ function ProductInfo() {
 
   const handleAddToCart = () => {
     if (product) {
-      dispatch(addToCart({ ...product, quantity: 1 }));
+      dispatch(addToCartAsync(product)); // ✅ FIXED
     }
   };
 
@@ -48,7 +48,6 @@ function ProductInfo() {
     <div className="container py-5">
       <div className="row align-items-center">
 
-        {/* Image Section */}
         <div className="col-12 col-md-6 mb-4 text-center">
           <img
             src={product?.path}
@@ -58,7 +57,6 @@ function ProductInfo() {
           />
         </div>
 
-        {/* Details Section */}
         <div className="col-12 col-md-6">
           <h2 className="mb-3">{product?.title}</h2>
 
