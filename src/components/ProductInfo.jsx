@@ -17,7 +17,7 @@ function ProductInfo() {
       try {
         setLoading(true);
         const { data } = await axios.get(
-          `http://localhost:8080/products/${id}`
+          `https://695ea7dc2556fd22f6790bb6.mockapi.io/Products/${id}`
         );
         setProduct(data);
       } catch (err) {

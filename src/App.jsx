@@ -1,13 +1,12 @@
 import Contact from "./components/Contact"
 import About from "./components/About"
-import Bat from "./components/Bat"
-import Ball from "./components/Ball"
+
 import Footer from "./components/Footer"
 import Header from "./components/Header"
-import Glove from "./components/Glove"
+
 import Home from "./components/Home"
 import Login from "./components/Login"
-import Helmet from "./components/Helmet"
+
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Dashboard from "./components/Dashboard"

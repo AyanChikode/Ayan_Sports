@@ -1,18 +1,31 @@
-/* ===== Carousel Image Fix ===== */
-.carousel-img {
-  height: 500px;          /* Yaha height control karo */
-  object-fit: cover;      /* Image stretch nahi hogi */
+.carousel-img{
+height:500px;
+object-fit:cover;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .carousel-img {
-    height: 250px;
-  }
+.player-card{
+border:none;
+border-radius:15px;
+overflow:hidden;
+transition:0.3s;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
 }
 
-/* Player Images */
-.player-img {
-  height: 300px;
-  object-fit: cover;
+.player-card:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+.player-img{
+height:280px;
+object-fit:cover;
+}
+
+.card-body{
+text-align:center;
+}
+
+.card-title{
+font-weight:bold;
+font-size:20px;
 }

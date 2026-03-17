@@ -67,17 +67,18 @@ function Checkout() {
 
         handler: async function (response) {
           try {
-            await axios.post(
+              await axios.post(
               "https://695b986a1d8041d5eeb77c41.mockapi.io/orders",
               {
-                billing,
+                ...billing,
                 products: cartProducts,
                 amount: total,
                 payment_id: response.razorpay_payment_id,
                 payment_status: "success",
-                createdAt: new Date(),
+                createdAt: new Date().toISOString(),
               }
             );
+            
 
             alert("Payment Successful 🎉");
             dispatch(clearCart());

@@ -8,7 +8,7 @@ function Products() {
     const [data, setData] = useState([]);
 
     function loadData() {
-        axios.get("http://localhost:8080/products/list")
+        axios.get("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products")
 
             .then((res) => {
                 console.log(res.data);  // [{},{}]
@@ -22,7 +22,7 @@ function Products() {
 
     function handleDelete(id) {
         console.log(id)
-        axios.delete("http://localhost:8080/products/delete/"+ id)
+        axios.delete("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products/"+ id)
             .then((res) => {
                 console.log(res.data);
                 loadData();

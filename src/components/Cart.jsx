@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   removeFromCartAsync,
   updateQuantityAsync,
@@ -7,6 +8,7 @@ import {
 
 function Cart() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { cartProducts, loading, error } = useSelector(
     (state) => state.cart
@@ -37,16 +39,15 @@ function Cart() {
     <div className="container mt-5">
       <h2 className="mb-4">Shopping Cart</h2>
 
-      {cartProducts.length === 0 && (
-        <p>Your cart is empty 🛒</p>
-      )}
+      {cartProducts.length === 0 && <p>Your cart is empty 🛒</p>}
 
       {cartProducts.map((item) => (
         <div
           key={item.id}
           className="d-flex justify-content-between align-items-center border p-3 mb-3"
         >
-            <img style={{ width: "100px", height:"100px"}} src={item.path} />
+          <img style={{ width: "100px", height: "100px" }} src={item.path} alt="" />
+
           <div>
             <h5>{item.title}</h5>
             <p>₹ {item.price}</p>
@@ -94,6 +95,16 @@ function Cart() {
         </p>
         <p className="text-danger">Discount: ₹ {discount}</p>
         <h4>Total: ₹ {finalTotal}</h4>
+
+        {/* Checkout Button */}
+        {cartProducts.length > 0 && (
+          <button
+            className="btn btn-success mt-3"
+            onClick={() => navigate("/checkout")}
+          >
+            Proceed to Checkout
+          </button>
+        )}
       </div>
     </div>
   );

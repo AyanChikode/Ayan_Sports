@@ -17,7 +17,7 @@ function AllProducts() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/products/list")
+      .get("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
   }, []);

@@ -6,7 +6,7 @@ const AddProduct = () => {
 
   let navigate = useNavigate();
 
-  let { id } = useParams();
+  const { id } = useParams();
   // alert(id);
 
   const [data, setData] = useState({
@@ -86,7 +86,7 @@ const AddProduct = () => {
 
       if (isValid) {
 
-        axios.post("http://localhost:8080/products/register", data)
+        axios.post("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products", data)
           .then((res) => {
             console.log(res.data);
             setData({
@@ -109,7 +109,7 @@ const AddProduct = () => {
 
       if (isValid) {
 
-       axios.put(`http://localhost:8080/products/update/${id}`, data)
+       axios.put(`https://695ea7dc2556fd22f6790bb6.mockapi.io/Products/${id}`, data)
 
 
           .then((res) => {
@@ -124,7 +124,7 @@ const AddProduct = () => {
 
   useEffect(() => {
     if (id) {
-      axios.get("http://localhost:8080/products/" + id)
+      axios.get("https://695ea7dc2556fd22f6790bb6.mockapi.io/Products/" + id)
 
         .then((res) => {
           console.log(res.data)
