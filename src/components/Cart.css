@@ -1,0 +1,141 @@
+/* ===== Cart.css White + Blue + Orange Theme ===== */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f8fbff;
+}
+
+/* Main Container */
+.container {
+  max-width: 1100px;
+}
+
+/* Heading */
+h2 {
+  color: #0056d2;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Empty Cart */
+p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Cart Item Box */
+.cart-item,
+.border {
+  background: #ffffff;
+  border: none !important;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 86, 210, 0.08);
+  transition: 0.3s ease;
+}
+
+.cart-item:hover,
+.border:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 86, 210, 0.12);
+}
+
+/* Product Image */
+.border img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* Product Title */
+h5 {
+  color: #0056d2;
+  font-weight: 700;
+}
+
+/* Quantity Buttons */
+.btn-secondary {
+  background: #0056d2 !important;
+  border: none !important;
+  width: 32px;
+  height: 32px;
+  border-radius: 50% !important;
+  font-weight: bold;
+}
+
+.btn-secondary:hover {
+  background: #ff6a00 !important;
+}
+
+/* Remove Button */
+.btn-danger {
+  border: none !important;
+  background: #ff6a00 !important;
+  border-radius: 10px;
+  padding: 8px 14px;
+}
+
+.btn-danger:hover {
+  background: #e85d00 !important;
+}
+
+/* Summary Box */
+.text-end {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 86, 210, 0.08);
+}
+
+/* Totals */
+.text-end p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.text-end h4 {
+  color: #0056d2;
+  font-weight: 700;
+}
+
+/* Discount */
+.text-danger {
+  color: #ff6a00 !important;
+  font-weight: 600;
+}
+
+/* Checkout Button */
+.btn-success {
+  background: linear-gradient(135deg, #0056d2, #1e88ff) !important;
+  border: none !important;
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #ff6a00, #ff9800) !important;
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .border {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .text-end {
+    text-align: center !important;
+  }
+
+  .btn-danger,
+  .btn-success {
+    width: 100%;
+  }
+}

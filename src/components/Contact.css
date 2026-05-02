@@ -1,0 +1,108 @@
+/* ===== Contact Page White + Blue + Orange Theme ===== */
+
+body {
+  background: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Section */
+section {
+  background: #ffffff !important;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+/* Heading */
+h2 {
+  color: #0056d2;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.lead {
+  color: #666 !important;
+  font-size: 18px;
+}
+
+/* Contact Info Blocks */
+h5 {
+  color: #0056d2;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.text-secondary,
+a.text-secondary {
+  color: #555 !important;
+  transition: 0.3s ease;
+}
+
+a.text-secondary:hover {
+  color: #ff6a00 !important;
+}
+
+/* Icons */
+.fa-location-dot,
+.fa-phone,
+.fa-envelope,
+.fa-clock {
+  color: #ff6a00 !important;
+  min-width: 35px;
+}
+
+/* Form Card */
+.bg-white {
+  border-radius: 18px !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Labels */
+.form-label {
+  font-weight: 600;
+  color: #0056d2;
+}
+
+/* Inputs */
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  padding: 10px 14px;
+  transition: 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #0056d2;
+  box-shadow: 0 0 0 0.2rem rgba(0, 86, 210, 0.15);
+}
+
+/* Button */
+.btn-dark {
+  background: linear-gradient(135deg, #0056d2, #1e88ff) !important;
+  border: none !important;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-dark:hover {
+  background: linear-gradient(135deg, #ff6a00, #ff9800) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 106, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .lead {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .bg-white {
+    padding: 25px !important;
+  }
+}

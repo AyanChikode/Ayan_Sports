@@ -5,6 +5,7 @@ import {
   removeFromCartAsync,
   updateQuantityAsync,
 } from "../state/cartSlice";
+import "./Cart.css";
 
 function Cart() {
   const dispatch = useDispatch();

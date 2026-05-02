@@ -1,0 +1,96 @@
+/* ===== Footer White + Blue + Orange Theme ===== */
+
+footer {
+  background: #ffffff !important;
+  color: #333 !important;
+  border-top: 3px solid #ff6a00;
+  margin-top: 50px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Social Section */
+footer section:first-child {
+  background: #0056d2;
+  color: white !important;
+}
+
+footer section:first-child a {
+  color: white !important;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+footer section:first-child a:hover {
+  color: #ffb066 !important;
+  transform: translateY(-3px);
+}
+
+/* Headings */
+footer h6 {
+  color: #0056d2;
+  font-size: 17px;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 18px;
+}
+
+footer h6::after {
+  content: "";
+  display: block;
+  width: 45px;
+  height: 3px;
+  background: #ff6a00;
+  margin-top: 8px;
+  border-radius: 10px;
+}
+
+/* Text */
+footer p,
+footer a {
+  color: #555 !important;
+  font-size: 15px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+footer a:hover {
+  color: #ff6a00 !important;
+  padding-left: 5px;
+}
+
+/* Icons */
+footer i {
+  color: #ff6a00;
+}
+
+/* Contact Icons */
+footer .fa-home,
+footer .fa-envelope,
+footer .fa-print {
+  color: #0056d2;
+}
+
+/* Bottom spacing */
+footer .container {
+  padding-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  footer {
+    text-align: center;
+  }
+
+  footer h6::after {
+    margin: 8px auto 0;
+  }
+
+  footer p,
+  footer a {
+    font-size: 14px;
+  }
+
+  footer section:first-child {
+    justify-content: center !important;
+  }
+}

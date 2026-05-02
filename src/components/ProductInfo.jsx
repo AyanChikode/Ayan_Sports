@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCartAsync } from "../state/cartSlice"; // ✅ FIXED
+import "./ProductInfo.css";
 
 function ProductInfo() {
   const { id } = useParams();

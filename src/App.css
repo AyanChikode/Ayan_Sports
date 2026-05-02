@@ -1,54 +1,142 @@
-.nav-link {
-  color: #ccc !important;
-  margin-right: 12px;
+/* ===== App.css Global White + Blue + Orange Theme ===== */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.nav-link:hover {
-  color: #fff !important;
+/* Body */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffffff, #eef5ff);
+  color: #222;
+  overflow-x: hidden;
 }
 
-.nav-link.active {
-  color: #0d6efd !important;
-  border-bottom: 2px solid #0d6efd;
-}
-.nav-link:hover {
-  color: #0d6efd !important;
-}
-.nav-link:hover {
-  color: #0d6efd !important;
+/* Root Layout */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-
-/* Cart CSS */
-/* @media (min-width: 1025px) {
-.h-custom {
-height: 100vh !important;
-}
+/* Main Page Area */
+main,
+.page-wrapper {
+  flex: 1;
 }
 
-.card-registration .select-input.form-control[readonly]:not([disabled]) {
-font-size: 1rem;
-line-height: 2.15;
-padding-left: .75em;
-padding-right: .75em;
+/* Common Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #0056d2;
+  font-weight: 700;
 }
 
-.card-registration .select-arrow {
-top: 13px;
-} */
+/* Paragraph */
+p {
+  color: #555;
+  line-height: 1.6;
+}
 
-.product-image {
-            max-height: 400px;
-            object-fit: cover;
-        }
-        .thumbnail {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            cursor: pointer;
-            opacity: 0.6;
-            transition: opacity 0.3s ease;
-        }
-        .thumbnail:hover, .thumbnail.active {
-            opacity: 1;
-        }
+/* Links */
+a {
+  text-decoration: none !important;
+  transition: 0.3s ease;
+}
+
+a:hover {
+  color: #ff6a00 !important;
+}
+
+/* Buttons Global */
+.btn {
+  border-radius: 30px !important;
+  font-weight: 600 !important;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Blue Buttons */
+.btn-primary,
+.btn-outline-primary,
+.btn-success {
+  border: none !important;
+  background: linear-gradient(135deg, #0056d2, #1e88ff) !important;
+  color: white !important;
+}
+
+/* Orange Hover */
+.btn-primary:hover,
+.btn-outline-primary:hover,
+.btn-success:hover {
+  background: linear-gradient(135deg, #ff6a00, #ff9800) !important;
+  box-shadow: 0 10px 20px rgba(255, 106, 0, 0.2);
+}
+
+/* Cards */
+.card {
+  border: none !important;
+  border-radius: 18px !important;
+  box-shadow: 0 10px 25px rgba(0, 86, 210, 0.08);
+}
+
+/* Form Inputs */
+.form-control,
+.form-select {
+  border-radius: 12px !important;
+  padding: 10px 14px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #0056d2 !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 86, 210, 0.15) !important;
+}
+
+/* Tables */
+.table thead {
+  background: linear-gradient(135deg, #0056d2, #1e88ff);
+  color: white;
+}
+
+/* Footer Sticky Bottom */
+footer {
+  margin-top: auto;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0056d2;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6a00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}

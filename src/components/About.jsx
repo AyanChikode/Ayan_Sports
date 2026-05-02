@@ -1,5 +1,5 @@
 import React from "react";
-{/* "rzp_test_4yosHYDduPYmKN" */}
+import './About.css'
 function About() {
   return (
     <>

@@ -1,1 +1,132 @@
+/* Header Theme - White + Blue + Orange */
 
+.navbar-custom {
+  background: #ffffff;
+  padding: 14px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Logo */
+.logo-img {
+  height: 55px;
+  width: auto;
+}
+
+/* Nav Links */
+.nav-link {
+  color: #0d47a1 !important;   /* Blue */
+  font-weight: 600;
+  margin: 0 10px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ff6f00 !important;   /* Orange */
+}
+
+/* Underline Hover Effect */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #ff6f00;
+  transition: 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Admin Login Special */
+.admin-link {
+  background: linear-gradient(135deg, #0d47a1, #1976d2);
+  color: white !important;
+  padding: 8px 16px !important;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+
+.admin-link:hover {
+  background: linear-gradient(135deg, #ff6f00, #ff9800);
+  color: white !important;
+}
+
+/* Cart */
+.cart-link {
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.cart-box {
+  position: relative;
+  background: #0d47a1;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.cart-box:hover {
+  background: #ff6f00;
+  transform: scale(1.05);
+}
+
+.cart-icon {
+  font-size: 20px;
+}
+
+/* Badge */
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff6f00;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 7px;
+  border-radius: 50%;
+}
+
+.cart-box:hover .cart-badge {
+  background: #ffffff;
+  color: #ff6f00;
+}
+
+/* Toggle Button */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  filter: brightness(0) saturate(100%) invert(21%) sepia(99%) saturate(1273%)
+    hue-rotate(201deg) brightness(91%) contrast(101%);
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+  .nav-link {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .cart-link {
+    margin-top: 15px;
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .admin-link {
+    display: inline-block;
+    margin-top: 10px;
+  }
+}

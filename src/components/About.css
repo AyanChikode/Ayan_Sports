@@ -1,0 +1,104 @@
+
+body {
+  background: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* section */
+section {
+  background: #ffffff !important;
+}
+
+/* heading */
+.display-5 {
+  color: #0056d2;
+  font-weight: 700;
+}
+
+.lead {
+  color: #666 !important;
+  font-size: 18px;
+}
+
+hr {
+  border: 2px solid #ff6a00;
+  opacity: 1;
+}
+
+/* image */
+img {
+  border-radius: 18px !important;
+  transition: 0.4s ease;
+}
+
+img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 86, 210, 0.15);
+}
+
+/* cards */
+.card {
+  border-radius: 18px !important;
+  background: #ffffff;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 86, 210, 0.12) !important;
+}
+
+.card-title {
+  color: #0056d2;
+  font-weight: 700;
+}
+
+/* list items */
+li {
+  color: #444;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+li:hover {
+  color: #ff6a00;
+  padding-left: 4px;
+}
+
+/* check icons */
+.fa-check {
+  color: #ff6a00 !important;
+  font-size: 14px;
+}
+
+/* button */
+.btn-dark {
+  background: linear-gradient(135deg, #0056d2, #1e88ff) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.btn-dark:hover {
+  background: linear-gradient(135deg, #ff6a00, #ff9800) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 106, 0, 0.2);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .display-5 {
+    font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .btn-dark {
+    width: 100%;
+    text-align: center;
+  }
+}
